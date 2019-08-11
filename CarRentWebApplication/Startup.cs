@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using CarRentWebApplication.Models;
+using CarRentWebApplication.CarRentalDataAcess;
 
 namespace CarRentWebApplication
 {
@@ -26,6 +29,10 @@ namespace CarRentWebApplication
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<CarRentContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("CarRentContext")));
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +49,8 @@ namespace CarRentWebApplication
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseMvc(routes =>
             {
@@ -62,6 +71,7 @@ namespace CarRentWebApplication
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
         }
     }
 }
