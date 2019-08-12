@@ -1,8 +1,16 @@
+<p>
+  cars works!
+</p>
 <h1>Cars</h1>
 
 <p>Here you can find a list of available cars.</p>
 
 <p *ngIf="!cars"><em>Loading...</em></p>
+
+<div *ngIf="currentCar">
+  <h2>Modify</h2>
+  <input class="form-control" type="text">
+</div>
 
 <table class='table table-striped' *ngIf="cars">
   <thead>
@@ -12,22 +20,17 @@
       <th>Class</th>
       <th>Year</th>
       <th>Registration Number</th>
-      <th></th>
+      <th><span *ngIf="currentCar">{{ currentCar.registrationNumber }}</span></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let car of cars">
+    <tr *ngFor="let car of cars; let id = index">
       <td>{{ car.manufactorer }}</td>
       <td>{{ car.model }}</td>
       <td>{{ car.class }}</td>
       <td>{{ car.manufactoryYear }}</td>
       <td>{{ car.registrationNumber }}</td>
-      <td><a (onclick="OnSelect(car)")>Edit</a></td>
+      <td><button  type="button" (click)="modify(id)">Edit</button></td>
     </tr>
   </tbody>
 </table>
-
-
-<p>Current count: <strong>{{ currentCount }}</strong></p>
-
-<button class="btn btn-primary" (click)="search()">Search</button>
