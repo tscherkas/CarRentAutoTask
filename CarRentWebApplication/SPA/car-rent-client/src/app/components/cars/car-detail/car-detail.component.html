@@ -1,0 +1,36 @@
+<div *ngIf="car">
+
+  <h2>Car Details</h2>
+  <div><span>id: </span>{{car.id}}</div>
+  <div>
+    <label>
+      Manufactorer:
+      <input [(ngModel)]="car.manufactorer " placeholder="manufactorer" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Model:
+      <input [(ngModel)]="car.model" placeholder="model" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Class:
+      <input [(ngModel)]="car.class" placeholder="class" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Year:
+      <input [(ngModel)]="car.manufactoryYear" placeholder="year" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Registration number:
+      <input [(ngModel)]="car.registrationNumber" placeholder="registration number" />
+    </label>
+  </div>
+
+</div>

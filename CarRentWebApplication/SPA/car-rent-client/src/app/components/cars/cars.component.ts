@@ -32,7 +32,33 @@ export class CarsComponent implements OnInit {
     }, error => console.error(error));
   }
 
+  clearCurrentCar() {
+    this.currentCar = {
+      id: 0,
+      manufactorer: '',
+      model: '',
+      class: '',
+      manufactoryYear: 0,
+      registrationNumber: ''
+    };
+  }
+
   public modify(i: number) {
     this.currentCar = this.cars[i];
+  }
+  public updateCar() {
+    this.carsService.updateCar(this.currentCar).subscribe(result => {
+      this.currentCar = result;
+    }, error => console.error(error));
+  }
+  public addCar() {
+    this.carsService.addCar(this.currentCar).subscribe(result => {
+      this.currentCar = result;
+    }, error => console.error(error));
+  }
+  public deleteCar(i: number) {
+    this.carsService.deleteCar(this.cars[i].id).subscribe(result => {
+      this.currentCar = result;
+    }, error => console.error(error));
   }
 }
