@@ -1,4 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
-<app-cars></app-cars>
-
+<div style="position:fixed;top:0px;">
+  <ngb-alert *ngIf="alertsService.currentAlert()" [type]="alertsService.currentAlert().type" (close)="alertsService.addAlert(null)">
+    <div> {{ alertsService.currentAlert().message }} </div>
+    <ul>
+      <li *ngFor="let error of alertsService.getInnerMessages()">{{error}}</li>
+    </ul>
+  </ngb-alert>
+</div>
+<div class="container">
+  <app-cars></app-cars>
+</div>
+<div class="container">
+  <app-users></app-users>
+</div>

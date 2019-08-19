@@ -3,11 +3,10 @@
 <p>Here you can find a list of available cars.</p>
 
 <p *ngIf="!cars"><em>Loading...</em></p>
-
 <div *ngIf="currentCar">
   <app-car-detail [car]="currentCar"></app-car-detail>
-  <button *ngIf="currentCar.id > 0" type="button" (click)="updateCar()">Update</button>
-  <button *ngIf="currentCar.id == 0" type="button" (click)="addCar()">Create</button>
+  <button *ngIf="currentCar.id > 0" type="button" (click)="updateCar()" class="btn btn-primary">Update</button>
+  <button *ngIf="currentCar.id == 0" type="button" (click)="addCar()" class="btn btn-primary">Create</button>
 </div>
 
 <table class='table table-striped' *ngIf="cars">
@@ -18,7 +17,8 @@
       <th>Class</th>
       <th>Year</th>
       <th>Registration Number</th>
-      <th><span *ngIf="currentCar">{{ currentCar.registrationNumber }}</span></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -28,12 +28,11 @@
       <td>{{ car.class }}</td>
       <td>{{ car.manufactoryYear }}</td>
       <td>{{ car.registrationNumber }}</td>
-      <td><button type="button" (click)="modify(id)">Edit</button></td>
-      <td><button type="button" (click)="deleteCar(id)">Delete</button></td>
+      <td><button type="button" (click)="modify(id)" class="btn btn-primary">Edit</button></td>
+      <td><button type="button" (click)="deleteCar(id)" class="btn btn-primary">Delete</button></td>
     </tr>
     <tr>
-      <td colspan="6"><button (click)="clearCurrentCar()">+</button></td>
-      
+      <td colspan="6"><button (click)="clearCurrentCar()" class="btn btn-primary btn-lg">+</button></td>
     </tr>
   </tbody>
 </table>

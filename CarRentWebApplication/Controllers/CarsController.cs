@@ -76,10 +76,15 @@ namespace CarRentWebApplication.Controllers
         [HttpPost]
         public async Task<ActionResult<Car>> PostCar(Car car)
         {
-            _context.Cars.Add(car);
-            await _context.SaveChangesAsync();
+            if (ModelState.IsValid)
+            {
+                _context.Cars.Add(car);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCar", new { id = car.RegistrationNumber }, car);
+                return CreatedAtAction("GetCar", new { id = car.RegistrationNumber }, car);
+            }
+            return BadRequest(ModelState);
+
         }
 
         // DELETE: api/Cars/5

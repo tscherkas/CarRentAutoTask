@@ -1,35 +1,33 @@
 <div *ngIf="car">
-
   <h2>Car Details</h2>
-  <div><span>id: </span>{{car.id}}</div>
-  <div>
+  <div class="form-group">
     <label>
       Manufactorer:
-      <input [(ngModel)]="car.manufactorer " placeholder="manufactorer" />
+      <input [(ngModel)]="car.manufactorer " placeholder="manufactorer" class="form-control"/>
     </label>
   </div>
-  <div>
+  <div class="form-group">
     <label>
       Model:
-      <input [(ngModel)]="car.model" placeholder="model" />
+      <input [(ngModel)]="car.model" placeholder="model" class="form-control"/>
     </label>
   </div>
-  <div>
+  <div class="form-group">
     <label>
       Class:
-      <input [(ngModel)]="car.class" placeholder="class" />
+      <input [(ngModel)]="car.class" placeholder="class" class="form-control"/>
     </label>
   </div>
-  <div>
+  <div class="form-group">
     <label>
       Year:
-      <input [(ngModel)]="car.manufactoryYear" placeholder="year" />
+      <input [(ngModel)]="car.manufactoryYear" placeholder="year" class="form-control" required min="1900" max="2100"/>
     </label>
   </div>
-  <div>
+  <div class="form-group">
     <label>
       Registration number:
-      <input [(ngModel)]="car.registrationNumber" placeholder="registration number" />
+      <input [(ngModel)]="car.registrationNumber" placeholder="registration number" class="form-control"/>
     </label>
   </div>
 

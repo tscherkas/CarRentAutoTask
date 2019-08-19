@@ -27,10 +27,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="SPA\car-rent-client\src\app\interceptors\http-error.interceptor.ts" />
+    <None Remove="SPA\car-rent-client\src\app\shared\alerts\alert.ts" />
     <None Remove="SPA\car-rent-client\src\app\shared\models\car.ts" />
+    <None Remove="SPA\car-rent-client\src\app\shared\models\user-service-model.ts" />
+    <None Remove="SPA\car-rent-client\src\app\shared\models\user.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="SPA\car-rent-client\src\app\interceptors\http-error.interceptor.ts" />
+    <TypeScriptCompile Include="SPA\car-rent-client\src\app\shared\alerts\alert.ts" />
+    <TypeScriptCompile Include="SPA\car-rent-client\src\app\shared\models\user-service-model.ts" />
+    <TypeScriptCompile Include="SPA\car-rent-client\src\app\shared\models\user.ts" />
     <TypeScriptCompile Include="SPA\car-rent-client\src\app\shared\models\car.ts" />
   </ItemGroup>
 
