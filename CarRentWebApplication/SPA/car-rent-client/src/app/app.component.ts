@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'car-rent-client';
 
   private alertsService: AlertsService;
+  currentComponent: string = "Cars";
   constructor(alertsService: AlertsService) {
     this.alertsService = alertsService;
   }

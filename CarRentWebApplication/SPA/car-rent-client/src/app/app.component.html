@@ -7,9 +7,37 @@
     </ul>
   </ngb-alert>
 </div>
-<div class="container">
-  <app-cars></app-cars>
-</div>
-<div class="container">
-  <app-users></app-users>
+
+<div class="wrapper">
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Cars rent</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <li [className]="currentComponent == 'Cars' ? 'active' : ''">
+        <a (click)="currentComponent = 'Cars'">Cars</a>
+      </li>
+      <li [className]="currentComponent == 'Users' ? 'active' : ''">
+        <a (click)="currentComponent = 'Users'">Users</a>
+      </li>
+      <li [className]="currentComponent == 'CarRents' ? 'active' : ''">
+        <a (click)="currentComponent = 'CarRents'">Rents</a>        
+      </li>
+    </ul>
+  </nav>
+  <!-- Page Content -->
+  <div id="content">
+    <div class="container" *ngIf="currentComponent == 'Cars'">
+      <app-cars></app-cars>
+    </div>
+    <div class="container" *ngIf="currentComponent == 'Users'">
+      <app-users></app-users>
+    </div>
+    <div class="container" *ngIf="currentComponent == 'CarRents'">
+      Placeholder!
+    </div>
+  </div>
 </div>
